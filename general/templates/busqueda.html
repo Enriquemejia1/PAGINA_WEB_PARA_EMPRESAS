@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <h1>Buscar Categoria</h1>
+    <form method="post">
+
+        {% csrf_token %}
+        {{form}}
+
+    </form>
+    {% endblock  %}

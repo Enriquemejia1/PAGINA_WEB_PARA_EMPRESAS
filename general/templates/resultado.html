@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block body %}
+
+<style>
+    body{
+        background-image: url("{% static 'fondo_home.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        
+    }
+</style>
+
+    <h1>Resultados para "{{termino_busqueda}}"</h1>
+  
+    {% for resultado in resultados %} 
+    <div class="row mb-3" >
+    <div  class="col-auto">
+            <img style="border-radius:10px;" src="{{resultado.perfil_empresa.imagenes_empresa.url}}" alt="Portada {{categoria.nombre}}" class="card-img-top" height="200" width="40" class="rounded" >
+    </div>
+    <div class="col row mt-2" >
+        <h5> {{resultado.nombre}} </h5>
+        <p> {{resultado.nombre_propietario}} </p>
+        <p> {{resultado.perfil_empresa.categoria.nombre}} </p>
+    </div>
+
+   </div>
+    
+        
+    {%endfor%}
+
+    {% endblock  %}
