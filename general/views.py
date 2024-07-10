@@ -4,8 +4,8 @@ from django.views import View
 from django.http import HttpRequest,HttpResponseRedirect
 from .models import *
 from .forms import *
-from uuid import UUID
-from django.contrib.auth import login, authenticate 
+#from uuid import UUID
+from django.contrib.auth import login, authenticate
 
 # Create your views here.
 
@@ -91,3 +91,105 @@ class Login(View):
        
         except Exception as error:
             return render(request,'error.html',{'error':error})
+        
+class Singup(View):
+
+    def get(self, request: HttpRequest):
+        try:
+            if request.user.is_authenticated:
+                return HttpResponseRedirect(reverse('home'))
+
+            form = SingupForm()
+
+            return render(request, 'singup.html', {'form': form})
+        
+        except Exception as error:
+            return render(request,'error.html',{'error':error})
+    
+    def post(self, request: HttpRequest):
+        try:
+            form = SingupForm(request.POST)
+
+            if form.is_valid():
+               firstname = form.cleaned_data['firstname']
+               lastname = form.cleaned_data['lastname']
+               email = form.cleaned_data['email']
+               password = form.cleaned_data['password']
+               confirmpassword = form.cleaned_data['confirmpassword']
+
+               print(firstname)
+               print(lastname)
+               print(email)
+               print(password)
+               print(confirmpassword)
+                   
+
+              
+               
+        #        user = authenticate(request, lastname = lastname, firstname = firstname, email=email, password = password, confirmpassword = confirmpassword)
+
+        #        if user is not None:
+        #            singup(request, user)
+
+        #            return HttpResponseRedirect(reverse('home'))
+        #        else:
+        #            return render(request, 'singup.html', {'form':form, 'aunthentication_error': True})
+                   
+
+            else:
+                return render(request, 'singup.html', {'form':form})
+       
+        except Exception as error:
+            return render(request,'error.html',{'error':error})
+        
+class Crearperfil(View):
+
+    def get(self, request: HttpRequest):
+        try:
+            if request.user.is_authenticated:
+                return HttpResponseRedirect(reverse('home'))
+
+            form = CrearperfilForm()
+
+            return render(request, 'crear_perfil_empresa.html', {'form': form})
+        
+        except Exception as error:
+            return render(request,'error.html',{'error':error})
+    
+    def post(self, request: HttpRequest):
+        try:
+                form = CrearperfilForm(request.POST)
+
+                if form.is_valid():
+                    mision =form.cleaned_data['mision']
+                    vision = form.cleaned_data['vision']
+                    imagen_empresa = form.cleaned_data['imagen_empresa']
+                    servicios= form.cleaned_data['servicios']
+                    categoria = form.cleaned_data['categoria']
+                
+                    
+
+                    print(mision)
+                    print(vision)
+                    print(imagen_empresa)
+                    print(servicios)
+                    print(categoria)
+                    
+
+                
+                    
+                    """  user = authenticate(request, mision = mision, firstname = firstname, email=email, password = password, confirmpassword = confirmpassword)
+
+                        if user is not None:
+                            crearperfil(request, user)
+
+                            return HttpResponseRedirect(reverse('home'))
+                        else:
+                            return render(request, 'singup.html', {'form':form, 'aunthentication_error': True})"""
+                        
+
+                else:
+                    return render(request, 'singup.html', {'form':form})
+       
+        except Exception as error:
+                return render(request,'error.html',{'error':error}) 

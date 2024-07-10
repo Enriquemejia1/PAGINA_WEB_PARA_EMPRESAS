@@ -1,0 +1,138 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Crear perfil de la empresa</title>
+</head>
+<body>
+    <style>
+
+        .login-putin{
+            background-color: #6247854F;
+            border: none;
+            border-radius: 20px;
+
+        }
+
+
+        body{
+            background-image: url("{% static 'fondo.png' %}");
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        
+            
+        }
+    </style>
+
+    <style>
+        input::placeholder{
+            color: white;
+        }
+
+        .form-input{
+            margin-top: 0rem;
+            border: none;
+            border-radius: 100px;
+            padding: 2px 1rem;
+            display: flex ; 
+            align-items: center;
+            overflow-x: hidden;
+            height: 2.2rem;
+            background-color: #3B3B3B3F;
+        }
+        .form-input > input {
+           outline: none;
+           border: none;
+           box-sizing: border-box;
+           flex-grow: 1;
+           width: 100%;
+           height: 100%;
+           background-color: transparent!important;
+    
+        }
+        .form-input > i {
+            margin: 0 5px;
+            color: rgb(119, 119, 119);
+        }
+
+        .botonform{
+            border-radius: 20px ;
+            background-color: #343434CB;
+            border: none;
+            color: white;
+            padding: 0.2rem 2rem ;
+            
+        }
+        .corner-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .titulo {
+            position: absolute;
+            top: 8.5rem;
+            right: center;
+            font-size: 3rem;
+
+        }
+
+    </style>
+    <div class="row align-items-center justify-content-center vh-100 vw-100">
+
+        <img class="col-auto corner-image " src="{% static 'logo_3.png' %}" alt="logo_empresa" style="width: 10rem;"  > 
+
+        <h1 class="text-center titulo" style="color: black;">Introduce tus datos</h1>
+
+        <div style="width: 50rem;height: 55%;" class="card login-putin ">
+
+            <div class="card-body ">
+
+                <div class="row  justify-content-center ">
+
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+
+                      <h4 style="margin: 0%;" >Mision</h4> 
+                    <div style=" margin-bottom: 1rem;" class="form-input">
+                        {{form.mision}}
+
+                    </div > 
+                    <h4  style="margin: 0%;" >Vision</h4>
+                    <div style=" margin-bottom: 1rem;" class="form-input">
+                        {{form.vision}}
+                    </div>
+                    <h4  style="margin: 0%;" >Imagen de la empresa</h4>
+                    <div style=" margin-bottom: 1rem;" class="form-input">
+                        {{form.imagen_empresa}}
+                    </div>    
+                    <h4  style="margin: 0%;" >Servicios</h4>    
+                    <div style=" margin-bottom: 1rem;" class="form-input">
+                        {{form.servicios}}  
+                    </div>  
+                    <h4  style="margin: 0%;" >Categoria</h4>      
+                    <div style=" margin-bottom: 1rem;" class="form-input">
+                        {{form.categoria}}
+                    </div>                 
+                    <div class="text-center ">
+                    <button style="width: 30%;" type="submit" class="botonform mt-3  " >Crear el perfil de la empresa</button>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+        
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity=""></script>
+</body>
+</html> 

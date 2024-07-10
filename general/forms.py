@@ -8,5 +8,22 @@ class BusquedaForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'form-control my-2'}))
-    password = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class':'form-control my-2'}))
+    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder':'Username'}))
+    password = forms.CharField(max_length=50, widget=forms.PasswordInput({'placeholder':'Password'}))
+
+
+class SingupForm(forms.Form):
+    firstname = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder':'First Name'}))
+    lastname= forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':'Last Name'}))
+    email =forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':'Email'}))
+    password=forms.CharField(max_length=50, widget=forms.PasswordInput({'placeholder':'Password'}))
+    confirmpassword=forms.CharField(max_length=50, widget=forms.PasswordInput({'placeholder':'Confirm Password'}))
+
+
+class CrearperfilForm(forms.Form):
+    mision = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder':''}))
+    vision = forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':''}))
+    imagen_empresa =forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':''}))
+    servicios =forms.CharField(max_length=50, widget=forms.PasswordInput({'placeholder':''}))
+    categoria=forms.CharField(max_length=50, widget=forms.PasswordInput({'placeholder':''}))
+    
