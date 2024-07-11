@@ -23,7 +23,7 @@ class SingupForm(forms.Form):
 class CrearperfilForm(forms.Form):
     mision = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder':''}))
     vision = forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':''}))
-    imagen_empresa =forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':''}))
-    servicios =forms.CharField(max_length=50, widget=forms.PasswordInput({'placeholder':''}))
-    categoria=forms.CharField(max_length=50, widget=forms.PasswordInput({'placeholder':''}))
+    imagen_empresa =forms.ImageField(widget=forms.FileInput())
+    servicios =forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':''}))
+    categoria=forms.CharField(max_length=50, widget=forms.TextInput({'placeholder':''}))
     

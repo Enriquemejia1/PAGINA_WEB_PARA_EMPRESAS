@@ -12,11 +12,9 @@ class CategoriaEmpresa(models.Model):
 
 class PerfilEmpresa(models.Model):
   id = models.UUIDField(primary_key = True, default = uuid4)
-  imagenes_empresa = models.ImageField( )
-  imagenes_empresa = models.ImageField( upload_to='perfil_empresa' )
+  imagenes_empresa = models.ImageField( upload_to='perfil_empresa', blank=True )
   mision= models.CharField(max_length=1500)
   vision = models.CharField(max_length=600)
-  categoria =models.CharField( max_length=200)
   servicios = models.CharField(max_length=500)
   categoria = models.ForeignKey(CategoriaEmpresa, on_delete = models.CASCADE)
 
